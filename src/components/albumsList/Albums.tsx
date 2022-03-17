@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import useFetch from 'react-fetch-hook'
 import Pagination from '../pagination/Pagination'
+import SearchBar from '../SearchBar'
 import Albumsstyles from './Albums.module.css'
 
 const Albums = () => {
@@ -35,6 +36,7 @@ const Albums = () => {
     <div>Loading...</div>
   ) : (
     <div>
+      <SearchBar placeholder="Search albums" data={data} />
       <div className={Albumsstyles.container}>
         {currentAlbums?.map((album) => (
           <div>
