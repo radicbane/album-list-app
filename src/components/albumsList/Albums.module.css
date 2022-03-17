@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 50px;
+}
+
+.title {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  background-color: #e7e9eb;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 80px;
+  box-shadow: 3px 10px #595959;
+}
+
+.title:hover {
+  color: #28282b62;
+}
