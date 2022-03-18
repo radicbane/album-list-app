@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
 
+.container {
+  margin-bottom: 50px;
+}
+
 .searchInput {
   display: flex;
 }
@@ -20,10 +24,13 @@ input:focus {
 .icons {
   display: grid;
   place-items: center;
+  position: relative;
+  left: -30px;
 }
 
 .resultsData {
   margin: 5px 0px 10px 0;
+  margin-top: 0px;
   padding: 10px;
   width: 30%;
   border-radius: 10px;
@@ -42,6 +49,6 @@ a {
 }
 
 .dataItem li {
-  padding: 5px;
+  padding: 10px;
   margin-left: 10px;
 }

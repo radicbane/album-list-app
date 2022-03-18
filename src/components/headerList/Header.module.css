@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
 .header {
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Bungee', cursive;
   font-size: 60px;
   text-align: center;
   text-decoration: none;
-  color: #595959;
   margin-bottom: 5%;
   letter-spacing: 5px;
+  color: #4a4e69;
 }

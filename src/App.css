@@ -5,7 +5,15 @@
 }
 
 body {
-  background-color: #bdbbb0;
+  background: rgb(154, 140, 152);
+  background: linear-gradient(
+    90deg,
+    rgba(154, 140, 152, 1) 5%,
+    rgba(201, 173, 167, 1) 15%,
+    rgba(242, 233, 228, 1) 50%,
+    rgba(201, 173, 167, 1) 85%,
+    rgba(154, 140, 152, 1) 95%
+  );
 }
 
 .container {

@@ -1,10 +1,16 @@
 import React from 'react'
 import Paginationstyles from './Pagination.module.css'
 
-const Pagination = ({ albumPerPage, totalAlbums, paginate }) => {
+interface PaginProps {
+  itemsPerPage: number
+  totalAlbums: number
+  paginate: (arg: number) => void
+}
+
+const Pagination = ({ itemsPerPage, totalAlbums, paginate }: PaginProps) => {
   const pageNumbers = []
 
-  for (let i = 1; i <= Math.ceil(totalAlbums / albumPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalAlbums / itemsPerPage); i++) {
     pageNumbers.push(i)
   }
 
@@ -17,9 +23,7 @@ const Pagination = ({ albumPerPage, totalAlbums, paginate }) => {
             className={Paginationstyles.number}
             onClick={() => paginate(number)}
           >
-            <a onClick={() => paginate(number)} href="!#">
-              {number}
-            </a>
+            {number}
           </div>
         ))}
       </div>

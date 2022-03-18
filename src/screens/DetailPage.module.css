@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
-
 .container {
+  margin: 4%;
+  margin-top: 0;
+}
+
+.card {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -18,8 +21,4 @@
   height: 100%;
   width: 100%;
   padding: 80px;
-}
-
-.title:hover {
-  color: #c9ada7;
 }

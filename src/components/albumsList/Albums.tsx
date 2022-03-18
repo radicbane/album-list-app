@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import useFetch from 'react-fetch-hook'
+import { AlbumsProps, UsersProps } from '../../APIResponsesTypes'
 import Pagination from '../pagination/Pagination'
-import SearchBar from '../SearchBar'
+import SearchBar from '../SearchBar/SearchBar'
 import Albumsstyles from './Albums.module.css'
+import { Link } from 'react-router-dom'
 
 const Albums = () => {
-  const [albums, setAlbums] = useState([])
+  const [albums, setAlbums] = useState<AlbumsProps[]>([])
   const [currentPage, setCurrentPage] = useState(1)
   const [albumPerPage] = useState(10)
+  // const [user, setUser] = useState<UsersProps>({})
 
   const { isLoading, data, error } = useFetch(
     `https://jsonplaceholder.typicode.com/albums`
@@ -17,6 +20,17 @@ const Albums = () => {
   useEffect(() => {
     setAlbums(data)
   }, [data])
+
+  // let { usersData } = useFetch(
+  //   `https://jsonplaceholder.typicode.com/users`
+  // ) as any
+
+  // useEffect(() => {
+  //   const author = usersData.find((user) => albums.userId === user.id)
+  //   if (usersData.length > 0) {
+  //     setUser(author)
+  //   }
+  // }, [albums.userId, usersData])
 
   const indexOfLastAlbum = currentPage + albumPerPage
   const indexOfFirstAlbum = indexOfLastAlbum - albumPerPage
@@ -40,13 +54,18 @@ const Albums = () => {
       <div className={Albumsstyles.container}>
         {currentAlbums?.map((album) => (
           <div>
-            <h1 className={Albumsstyles.title}>{album.title}</h1>
+            <Link to={`/album/${album.id}`}>
+              <h1 className={Albumsstyles.title}>{album.title}</h1>
+            </Link>
           </div>
         ))}
+        {/* <div>
+          <h2 className={Albumsstyles.user}>{user.name}</h2>
+        </div> */}
       </div>
       <div>
         <Pagination
-          albumPerPage={albumPerPage}
+          itemsPerPage={albumPerPage}
           totalAlbums={albums?.length}
           paginate={paginate}
         />

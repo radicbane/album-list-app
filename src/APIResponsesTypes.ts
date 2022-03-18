@@ -11,3 +11,11 @@ export interface UsersProps {
   name?: string
   users?: UsersProps[]
 }
+
+export interface PhotosProp {
+  albumId?: number
+  id?: number
+  title?: string
+  url?: string
+  thumbnailUrl: string
+}

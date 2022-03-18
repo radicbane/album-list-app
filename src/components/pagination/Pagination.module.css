@@ -5,14 +5,14 @@
   justify-content: center;
   padding: 10px 0;
   margin-top: 50px;
-  background: rgb(127, 127, 127);
-  background: rgb(189, 187, 176);
+  /* background: rgb(242, 233, 228);
   background: linear-gradient(
     90deg,
-    rgba(189, 187, 176, 1) 5%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(189, 187, 176, 1) 95%
-  );
+    rgba(242, 233, 228, 1) 0%,
+    rgba(201, 173, 167, 1) 40%,
+    rgba(201, 173, 167, 1) 60%,
+    rgba(242, 233, 228, 1) 100%
+  ); */
   font-family: 'Inter', sans-serif;
 }
 
@@ -20,7 +20,7 @@
   padding: 5px;
 }
 
-.number a {
+.number {
   padding: 10px 15px;
   border-radius: 50%;
   color: #000000;
@@ -29,7 +29,7 @@
   place-items: center;
 }
 
-.number a:hover {
+.number:hover {
   color: white;
-  background-color: #28282b62;
+  background-color: #4a4e69;
 }

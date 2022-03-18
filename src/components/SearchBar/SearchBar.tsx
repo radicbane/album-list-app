@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SearchBarstyles from './SearchBar.module.css'
 import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
+import { Link } from 'react-router-dom'
 
 const SearchBar = ({ data, placeholder }) => {
   const [filterData, setFilterData] = useState([])
@@ -28,7 +29,7 @@ const SearchBar = ({ data, placeholder }) => {
   }
 
   return (
-    <div>
+    <div className={SearchBarstyles.container}>
       <div className={SearchBarstyles.searchInput}>
         <input
           type="text"
@@ -49,9 +50,11 @@ const SearchBar = ({ data, placeholder }) => {
         <div className={SearchBarstyles.resultsData}>
           {filterData.slice(0, 3).map((value, key) => {
             return (
-              <a className={SearchBarstyles.dataItem} href="!#" target="_blank">
-                <li>{value.title}</li>
-              </a>
+              <Link to={`/album/${value.id}`}>
+                <div className={SearchBarstyles.dataItem}>
+                  <li>{value.title}</li>
+                </div>
+              </Link>
             )
           })}
         </div>
