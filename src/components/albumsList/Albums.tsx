@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import useFetch from 'react-fetch-hook'
-import { AlbumsProps, UsersProps } from '../../APIResponsesTypes'
+import { AlbumsProps } from '../../APIResponsesTypes'
 import Pagination from '../pagination/Pagination'
 import SearchBar from '../SearchBar/SearchBar'
 import Albumsstyles from './Albums.module.css'
@@ -21,9 +21,9 @@ const Albums = () => {
     setAlbums(data)
   }, [data])
 
-  // let { usersData } = useFetch(
-  //   `https://jsonplaceholder.typicode.com/users`
-  // ) as any
+  let { usersData } = useFetch(
+    `https://jsonplaceholder.typicode.com/users`
+  ) as any
 
   // useEffect(() => {
   //   const author = usersData.find((user) => albums.userId === user.id)
@@ -52,16 +52,17 @@ const Albums = () => {
     <div>
       <SearchBar placeholder="Search albums" data={data} />
       <div className={Albumsstyles.container}>
-        {currentAlbums?.map((album) => (
-          <div>
-            <Link to={`/album/${album.id}`}>
-              <h1 className={Albumsstyles.title}>{album.title}</h1>
-            </Link>
-          </div>
-        ))}
-        {/* <div>
-          <h2 className={Albumsstyles.user}>{user.name}</h2>
-        </div> */}
+        {currentAlbums?.map((album) => {
+          const author = usersData?.find((user) => album.userId === user.id)
+          return (
+            <div>
+              <Link to={`/album/${album.id}`}>
+                <h1 className={Albumsstyles.title}>{album.title}</h1>
+              </Link>
+              <h2>{author?.name}</h2>
+            </div>
+          )
+        })}
       </div>
       <div>
         <Pagination

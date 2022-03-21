@@ -5,14 +5,6 @@
   justify-content: center;
   padding: 10px 0;
   margin-top: 50px;
-  /* background: rgb(242, 233, 228);
-  background: linear-gradient(
-    90deg,
-    rgba(242, 233, 228, 1) 0%,
-    rgba(201, 173, 167, 1) 40%,
-    rgba(201, 173, 167, 1) 60%,
-    rgba(242, 233, 228, 1) 100%
-  ); */
   font-family: 'Inter', sans-serif;
 }
 
@@ -32,4 +24,10 @@
 .number:hover {
   color: white;
   background-color: #4a4e69;
+}
+
+@media only screen and (max-width: 320px) {
+  .number {
+    padding: 5px;
+  }
 }

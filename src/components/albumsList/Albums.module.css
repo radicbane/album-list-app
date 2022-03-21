@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: 50px;
+  grid-gap: 30px;
 }
 
 .title {
@@ -22,4 +22,21 @@
 
 .title:hover {
   color: #c9ada7;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+  input {
+    width: 80%;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .title {
+    padding: 50px;
+  }
 }
