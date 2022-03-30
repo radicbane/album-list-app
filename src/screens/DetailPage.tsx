@@ -5,6 +5,7 @@ import { useParams } from 'react-router'
 import { PhotosProp } from '../APIResponsesTypes'
 import SearchBar from '../components/searchBar/SearchBar'
 import DetailPagestyles from './DetailPage.module.css'
+import { SRLWrapper } from 'simple-react-lightbox'
 
 const DetailPage = () => {
   const [photos, setPhotos] = useState<PhotosProp[]>([])
@@ -14,9 +15,9 @@ const DetailPage = () => {
 
   let params = useParams() as any
 
-  const { isLoading, data, error } = useFetch(
+  const { isLoading, data, error } = useFetch<PhotosProp[]>(
     `https://jsonplaceholder.typicode.com/albums/${params.id}/photos`
-  ) as any
+  )
 
   useEffect(() => {
     setPhotos(data)
@@ -25,7 +26,6 @@ const DetailPage = () => {
   const indexOfLastAlbum = currentPage + photoPerPage
   const indexOfFirstAlbum = indexOfLastAlbum - photoPerPage
   const currentPhotos = photos?.slice(indexOfFirstAlbum, indexOfLastAlbum)
-
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   const twoColumn = DetailPagestyles.card
@@ -45,7 +45,6 @@ const DetailPage = () => {
   ) : (
     <div className={DetailPagestyles.container}>
       <SearchBar placeholder="Search photos" data={data} />
-
       <div className={DetailPagestyles.buttons}>
         <button onClick={() => setColumn(twoColumn)}>2</button>
         <button onClick={() => setColumn(threeColumn)}>3</button>
@@ -56,16 +55,18 @@ const DetailPage = () => {
           4
         </button>
       </div>
-
-      <div className={column}>
-        {currentPhotos?.map((photo) => (
-          <div className={DetailPagestyles.title}>
-            <img src={`${photo.thumbnailUrl}`} alt={`${photo.title}`} />
-            <p>{photo.title}</p>
-          </div>
-        ))}
-      </div>
-
+      <SRLWrapper>
+        <div className={column}>
+          {currentPhotos?.map((photo) => (
+            <div className={DetailPagestyles.main} key={photo.id}>
+              <a href={`${photo.url}`}>
+                <img src={`${photo.thumbnailUrl}`} alt={`${photo.title}`} />
+              </a>
+              <p>{photo.title}</p>
+            </div>
+          ))}
+        </div>
+      </SRLWrapper>
       <div>
         <Pagination
           itemsPerPage={photoPerPage}

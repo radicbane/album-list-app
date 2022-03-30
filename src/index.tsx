@@ -6,23 +6,26 @@ import Albums from './components/albumsList/Albums'
 import Layout from './Layout'
 import reportWebVitals from './reportWebVitals'
 import DetailPage from './screens/DetailPage'
+import SimpleReactLightBox from 'simple-react-lightbox'
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="albums" element={<Albums />} />
-        <Route
-          path="album/:id"
-          element={
-            <Layout>
-              <DetailPage />
-            </Layout>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <SimpleReactLightBox>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="albums" element={<Albums />} />
+          <Route
+            path="album/:id"
+            element={
+              <Layout>
+                <DetailPage />
+              </Layout>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </SimpleReactLightBox>
   </React.StrictMode>,
   document.getElementById('root')
 )
