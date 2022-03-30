@@ -40,9 +40,8 @@ const DetailPage = () => {
       </div>
     )
   }
-  return isLoading ? (
-    <div>Loading...</div>
-  ) : (
+  if (isLoading) <div>Loading...</div>
+  return (
     <div className={DetailPagestyles.container}>
       <SearchBar placeholder="Search photos" data={data} />
       <div className={DetailPagestyles.buttons}>

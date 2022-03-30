@@ -35,9 +35,8 @@ const Albums = () => {
       </div>
     )
   }
-  return isLoading ? (
-    <div>Loading...</div>
-  ) : (
+  if (isLoading) <div>Loading...</div>
+  return (
     <div>
       <SearchBar placeholder="Search albums" data={data} />
       <div className={Albumsstyles.container}>

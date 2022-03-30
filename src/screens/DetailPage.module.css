@@ -10,6 +10,11 @@
   grid-gap: 30px;
 }
 
+.card img {
+  width: 250px;
+  height: 250px;
+}
+
 .main {
   font-family: 'League Spartan', sans-serif;
   font-size: 30px;
@@ -34,6 +39,10 @@ p {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 30px;
+}
+.column3 img {
+  width: 200px;
+  height: 200px;
 }
 
 .column4 {
